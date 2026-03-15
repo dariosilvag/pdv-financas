@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Código QR do App Celular</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { 
+            background: #0f172a; color: #f8fafc; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif; text-align: center;
+        }
+        #qrcode { background: white; padding: 20px; border-radius: 12px; margin: 20px; }
+        .ip-list { font-size: 14px; color: #94a3b8; margin-top: 10px; }
+        .badge { display: inline-block; background-color: #22c55e; color: white; padding: 4px 10px; border-radius: 20px; font-weight: bold; font-size: 12px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="badge">Rede Global (Túnel) Ativada ✓</div>
+    <h1>Abra o Expo Go e aponte para cá! 📷</h1>
+    <p>O seu computador agora está roteando o servidor para o mundo (Internet).<br/>Você pode ler esse QR Code com o seu iPhone mesmo se estiver no 4G/5G.</p>
+    
+    <div id="qrcode"></div>
+    
+    <div class="ip-list">
+        <p>Ou, caso prefira digitar manualmente no Expo Go (na aba Home > "Enter URL Manually"):</p>
+        <p style="font-size: 18px; color: #f97316; font-weight: bold;">exp://8b3p7os-anonymous-8082.exp.direct</p>
+    </div>
+
+    <script>
+        const url = `exp://8b3p7os-anonymous-8082.exp.direct`;
+        new QRCode(document.getElementById("qrcode"), { text: url, width: 350, height: 350, colorDark : "#000000", colorLight : "#ffffff" });
+    </script>
+</body>
+</html>
