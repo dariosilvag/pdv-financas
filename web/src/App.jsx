@@ -3,7 +3,7 @@ import { ShoppingCart, Search, RefreshCw, Package, Maximize, Users, Settings, Lo
 import html2pdf from 'html2pdf.js';
 import './index.css';
 
-const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwANXc_RuodKauJiVUB2v2gHMvvRwT5p8_l-rg4sx8hectCR5gnGLvWRWzZ2c6QiBSSAQ/exec';
+const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL || '/api';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -707,8 +707,8 @@ function App() {
                   />
                 </div>
                 {loginError && <div className="login-error">{loginError}</div>}
-                <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1rem' }} disabled={authLoading}>
-                  {authLoading ? 'Verificando...' : 'Entrar'}
+                <button type="submit" className="btn-add" style={{ width: '100%', marginTop: '1.5rem', height: '50px' }} disabled={authLoading}>
+                  {authLoading ? 'Verificando...' : 'ENTRAR NO SISTEMA'}
                 </button>
               </form>
               <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>

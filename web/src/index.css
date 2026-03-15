@@ -1,15 +1,16 @@
 :root {
-  --bg-dark: #0f172a;
-  --bg-card: #1e293b;
+  --bg-dark: #020617;
+  --bg-card: rgba(30, 41, 59, 0.7);
   --bg-sidebar: #0f172a;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --accent-orange: #f9ee16;
-  --accent-orange-hover: #ea580c;
-  --border-color: #334155;
-  --success-green: #22c55e;
+  --accent-orange: #f59e0b; /* Premium Amber */
+  --accent-orange-hover: #d97706;
+  --border-color: rgba(51, 65, 85, 0.5);
+  --success-green: #10b981; /* Emerald */
   --input-bg: #1e293b;
-  --radius: 8px;
+  --radius: 12px;
+  --glass: blur(12px) saturate(180%);
 }
 
 * {
@@ -244,19 +245,22 @@ body {
 
 .product-card {
   background-color: var(--bg-card);
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-color: var(--text-muted);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--accent-orange);
 }
 
 .product-title {
@@ -322,24 +326,27 @@ body {
 }
 
 .btn-add {
-  background-color: var(--accent-orange);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-orange), #d97706);
+  color: #020617;
   border: none;
   border-radius: var(--radius);
   padding: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   width: 100%;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   margin-top: auto;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 .btn-add:hover {
-  background-color: var(--accent-orange-hover);
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+  filter: brightness(1.1);
 }
 
 .sidebar {
@@ -541,16 +548,18 @@ body {
 }
 
 .modal-content {
-  background-color: var(--bg-card);
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius);
+  border-radius: 24px;
   width: 90%;
   max-width: 900px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
 }
 
 .modal-header {
@@ -967,14 +976,15 @@ table tr:hover {
 }
 
 .login-logo {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  letter-spacing: -2px;
-  background: linear-gradient(to bottom right, #f97316, #fb923c);
+  letter-spacing: -3px;
+  background: linear-gradient(to bottom right, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
+  text-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
 }
 
 .login-title {
