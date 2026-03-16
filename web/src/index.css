@@ -720,6 +720,12 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-muted);
 }
 
 .btn-primary {
@@ -1008,6 +1014,37 @@ table tr:hover {
   margin-top: 2rem;
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+.link-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 0;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.link-btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-orange);
+  transition: width 0.3s ease;
+}
+
+.link-btn:hover {
+  color: var(--accent-orange);
+}
+
+.link-btn:hover::after {
+  width: 100%;
 }
 
 /* Analytics Dashboard Styles */
