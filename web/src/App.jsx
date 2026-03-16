@@ -390,11 +390,17 @@ function App() {
     let totalItems = 0; let subtotal = 0; let savings = 0;
     const items = cart.map(item => {
       const { product, quantity } = item;
-      const isAtacado = quantity >= product.minAtacado && product.priceAtacado < product.priceVarejo;
-      const appliedPrice = isAtacado ? product.priceAtacado : product.priceVarejo;
+      
+      // Suporte para nomes de propriedades em minúsculo ou camelCase vindos da planilha
+      const pVarejo = parseFloat(product.pricevarejo || product.priceVarejo || 0);
+      const pAtacado = parseFloat(product.priceatacado || product.priceAtacado || 0);
+      const mAtacado = parseInt(product.minatacado || product.minAtacado || 0);
+      
+      const isAtacado = mAtacado > 0 && quantity >= mAtacado && pAtacado < pVarejo;
+      const appliedPrice = isAtacado ? pAtacado : pVarejo;
       const itemTotal = appliedPrice * quantity;
 
-      if (isAtacado) savings += ((product.priceVarejo * quantity) - itemTotal);
+      if (isAtacado) savings += ((pVarejo * quantity) - itemTotal);
       totalItems += quantity; subtotal += itemTotal;
       return { ...item, appliedPrice, isAtacado, itemTotal };
     });
